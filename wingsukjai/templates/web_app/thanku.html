@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ลงทะเบียนเข้าร่วมงานวิ่งสุขใจชมไพรปากช่อง ครั้งที่12</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static "css/page.css" %}">
+  </head>
+  <body>
+    <!-- Top logo -->
+    <div class="container" >
+      <img class="img-responsive" style="margin-bottom: 10px;" src="{% static "images/Logo.png"%}" alt="logo image is not found">
+      <h1>ขอบคุณครับ</h1><br>
+      <p>ขณะนี้ท่านได้ลงทะเบียนเสร็จเรียบร้อยแล้ว</p>
+      <p>ท่านสามารถใช้หมายเลขโทรศัพท์มือถือตรวจสอบสถานะการลงทะเบียนได้</p><br>
+      <a href="{% url 'index' %}">กลับหน้าหลัก</a>
+    </div>
+
+  </body>
+</html>

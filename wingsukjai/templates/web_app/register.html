@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ลงทะเบียนเข้าร่วมงานวิ่งสุขใจชมไพรปากช่อง ครั้งที่12</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static "css/page.css"%}">
+  </head>
+  <body>
+    <!-- Top logo -->
+    <div class="container">
+      <img class="img-responsive" style="margin-bottom: 10px;" src="{% static "images/Logo.png"%}" alt="logo image is not found">
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4" "col-xs-12"></div>
+        <div class="col-lg-4" "col-xs-12">
+          <h1>กรอกรายละเอียดนักกีฬา</h1><br>
+          <form method="POST" enctype="multipart/form-data">
+            <div style="text-align:left">
+              {{ form|crispy }}
+              <!-- {{ form }} -->
+            </div>
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" style="text-align:center" value="ลงทะเบียน">
+          </form>
+        </div>
+        <div class="col-lg-4" "col-xs-12"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

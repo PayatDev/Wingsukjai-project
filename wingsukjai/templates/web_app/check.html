@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ตรวจสอบการลงทะเบียน</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static "css/page.css"%}">
+    <link rel="stylesheet" href="{% static "css/search.css"%}">
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top logo -->
+      <div style="margin-bottom: 10px">
+        <img class="img-responsive" style="margin-bottom: 10px" src="{% static "images/Logo.png"%}" alt="logo image is not found">
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+
+          <!-- Search form -->
+          <div style="margin-bottom:50px">
+            <form method="POST">
+              {% csrf_token %}
+              <label for="">กรุณากรอกหมายเลขโทรศัพท์มือถือ</label><br>
+              <input type="text" name="your_number" value=""><br><br>
+              <input type="submit" class="btn btn-primary" style="text-align:center" value="ตรวจสอบ"><br>
+            </form>
+          </div>
+
+          <!-- display results -->
+          <div>
+            {% if checking %}
+              <table class="table table-bordered">
+                <thead>
+                  <th>ชื่อ</th>
+                  <th>สกุล</th>
+                  <th>สถานะ</th>
+                </thead>
+                <tbody style="text-align:left">
+                    {% for check in checking %}
+                    <tr>
+                      <td>{{ check.first_name }}</td>
+                      <td>{{ check.last_name }}</td>
+                      <td>{{ check.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+              <p>ท่านสามารถพิมพ์หน้านี้เก็บไว้เป็นหลักฐานได้</p>
+            {% else %}
+              <p>ยังไม่ได้ลงทะเบียนหรือกรุณาตรวจสอบหมายเลขโทรศัพท์มือถืออีกครั้ง</p>
+            {% endif %}
+
+          <a href="{% url 'index' %}">กลับหน้าหลัก</a>
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>วิ่งสุขใจชมไพรปากช่อง ซูเปอร์ฮาร์ฟมาราทอน ครั้งที่12</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static "css/page.css"%}">
+    <link rel="stylesheet" href="{% static "css/clock.css"%}">
+  </head>
+    <body >
+      <!-- Top logo -->
+      <div class="container">
+        <img class="img-responsive" style="margin-bottom: 10px" src="{% static "images/Logo.png"%}" alt="logo image is not found">
+      </div>
+
+      <!-- Navigation bar -->
+      <div class="container">
+        <nav class="navbar navbar-inverse" role="navigation" id="navbar">
+               <div class="container">
+                   <!-- Brand and toggle get grouped for better mobile display -->
+                   <div class="navbar-header">
+                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                       </button>
+                       <a class="navbar-brand" href="{% url 'index' %}">วิ่งสุขใจ</a>
+                   </div>
+                   <!-- Collect the nav links, forms, and other content for toggling -->
+                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                       <ul class="nav navbar-nav navbar-right">
+                           <li>
+                               <a href="{% url 'info' %}">รายละเอียดการแข่งขัน</a>
+                           </li>
+                           <li>
+                               <a href="{% url 'register' %}">ลงทะเบียน</a>
+                           </li>
+                           <li>
+                               <a href="{% url 'check' %}">ตรวจสอบการลงทะเบียน</a>
+                           </li>
+                       </ul>
+                   </div>
+                   <!-- /.navbar-collapse -->
+               </div>
+               <!-- /.container -->
+           </nav>
+      </div>
+
+      <!-- Billboard -->
+      <div class="container">
+        <img class="img-responsive" src="{% static "images/billboard.jpg"%}" alt="Billboard image is not found">
+      </div>
+
+      <!-- Payment -->
+      <div class="container">
+        <img class="img-responsive" src="{% static "images/payment.jpg"%}" alt="Payment image is not found">
+      </div>
+
+      <!-- Countdown -->
+      <script src="{% static "script/countdown.js"%}"></script>
+      <!-- countdown -->
+      <div class="container" style="padding: 25px 50px;">
+        <h1>แล้วพบกันที่งานวิ่งสุขใจชมไพรปากช่อง</h1>
+        <div id="clockdiv">
+          <div>
+            <span id="day" class="days"></span>
+            <div class="smalltext">วัน</div>
+          </div>
+          <div>
+            <span id="hour" class="hours"></span>
+            <div class="smalltext">ชั่วโมง</div>
+          </div>
+          <div>
+            <span id="min" class="minutes"></span>
+            <div class="smalltext">นาที</div>
+          </div>
+        </div>
+      </div>
+
+    </body>
+</html>
